@@ -24,7 +24,7 @@ public class Database {
             data = new ArrayList<>();
             for (int i = 1; i <lines.size(); i++) {
                 String line = lines.get(i);
-                String[] element = line.split(",");
+                String[] element = line.split(";");
                 String nim = element[0];
                 String nama = element[1];
                 String alamat = element[2];
@@ -58,14 +58,14 @@ public class Database {
     }
 
     public void view(){
-        System.out.println("============================================================================================");
+        System.out.println("==================================================================================");
         System.out.printf("| %-8.8S |", "NIM");
         System.out.printf(" %-20.20S |", "NAMA");
         System.out.printf(" %-20.20S |", "ALAMAT");
         System.out.printf(" %8.8S |", "SEMESTER");
         System.out.printf(" %3.3S |", "SKS");
         System.out.printf(" %4.4S |%n", "IPK");
-        System.out.println("--------------------------------------------------------------------------------------------");
+        System.out.println("----------------------------------------------------------------------------------");
         for (mahasiswa mhs:data) {
             System.out.printf("| %-8S |", mhs.getNim());
             System.out.printf(" %-20.20S |", mhs.getNama());
@@ -75,7 +75,7 @@ public class Database {
             System.out.printf(" %4.4S |", mhs.getIpk());
             System.out.println();
         }
-        System.out.println("--------------------------------------------------------------------------------------------");
+        System.out.println("----------------------------------------------------------------------------------");
     }
 
     public boolean insert(String nim, String nama, String alamat, int semester, int sks, double ipk) {
@@ -101,7 +101,7 @@ public class Database {
 
     public int search(String nim) {
         int index = -1;
-        if (! data.isEmpty()){
+        if (!data.isEmpty()){
             for (int i = 0; i < data.size(); i++) {
                 if (data.get(i).getNim().equalsIgnoreCase(nim)) {
                     index = i;
